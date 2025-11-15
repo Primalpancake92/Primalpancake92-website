@@ -1,0 +1,15 @@
+name: Collaborative workflow
+
+on:
+  push:
+    branches: 
+      - main
+
+jobs: 
+  update_html_and_readme:
+    runs-on: ubuntu_latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+sed -i '/<\/body>/i <p>Updated by Team Leader on '"$(date)"'</p>' index.html
