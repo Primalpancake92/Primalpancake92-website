@@ -19,7 +19,6 @@ window.addEventListener('DOMContentLoaded', () => {
     slider.addEventListener('mouseleave', () => {
         slider.style.overflowY = 'hidden'
     })
-    
 })
 
 /* This is for the image gallery slider */
