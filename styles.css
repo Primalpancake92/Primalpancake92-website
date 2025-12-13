@@ -3,7 +3,7 @@
     --second-bg-color: rgb(163, 224, 245);
     --first-acc: #c7ebf7;
     --second-acc: #2fbff8;
-    --font-color: #2b2929f5;
+    --font-color: #423f3ff5;
 }
 
 *{
@@ -364,15 +364,22 @@ ul li a img{
     position: relative;
     display: flex;
     flex-direction: column;
-    width: 900px;
-    height: 1600px;
-    text-align: right;
+    top: -70px;
+    left: 25px; 
+    width: 800px;
+    height: 1725px;
+    text-align: right;  
 }
 
 .exp-info{
-    width: 900px;
+    width: 800px;
     margin-bottom: 50px;
     position: relative;
+    padding: 25px;
+}
+
+.exp-info p { 
+    text-align: left;
 }
 
 .extended{
@@ -412,20 +419,28 @@ ul li a img{
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    padding-top: 25px;
+}
+
+#project-box h2{
+    color: var(--font-color);
 }
 
 .project-view{
-    margin: 0 auto 0 auto;
-    width: 1230px;
-    height: 575px;
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
+    margin: 0 auto 0 auto;
+    width: 1225px;
+    height: auto;
+    padding: 10px 0 10px 0;
     overflow-x: hidden;
 }
 
 #project-grid{
     display: flex;
-    width: 90%;
+    width: 100%;
     gap: 15px;
     transition: transform 0.3s ease-out;
 }
@@ -481,4 +496,24 @@ ul li a img{
 @keyframes bounce {
 0%   { transform: translateY(0); }
 100% { transform: translateY(2px); }
+}
+
+#pdf-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+#pdf {
+    width: 100%;
+    height: 85%;
+}
+
+/* This is the 'Contact Me' model */
+
+.someSecftion {
+    
 }
