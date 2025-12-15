@@ -3,26 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="styles.css" rel="stylesheet">
+    <link href="/styles/styles.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Varela+Round&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <script defer src="script.js"></script>
     <title>John Le | Projects</title>
 </head>
 <body>
     <nav id="nav" class="nav">
         <ul id="links" class="navlinks">
-            <li><a id="name"><img src="images/debug.png" id="something"><p>John Le</p></a></li>
+            <li><a id="name"><img src="/images/debug.png" id="something"><p>John Le</p></a></li>
             <li><a class="nav-item" href="index.html">Home</a></li>
             <li><a class="nav-item" href="experience.html">Experience</a></li>
             <li><a class="nav-item" href="projects.html">Projects</a></li>
             <li><a class="nav-item" href="portfolio.html">Portfolio</a></li>
-            <li><a>Contact Me</a></li>
+            <li><a class="contact-btn">Contact Me</a></li>
         </ul>
     </nav>
+    <div class="some-modal">
+        <div class="modal-content">
+            <div class="deco-side">
+                <div class="modal-deco">
+                    <h1>Contact Me</h1>
+                    <p>Have any questions? Send them my way.</p>
+                </div>
+            </div>
+            <div class="email-side">
+                <div class="email">
+                    <label class="contact-lbls" for="modal-email">Email:</label>
+                    <input id="modal-email" type="email">
+                </div>
+                <div class="about">
+                    <label class="contact-lbls" for="modal-about">About:</label>
+                    <input id="modal-about" type="text">
+                </div>
+                <div class="message">
+                    <label class="contact-lbls" for="modal-msg">Message:</label>
+                    <textarea id="modal-msg" type="text"></textarea>
+                </div>
+                <div class="submit-btn">
+                    <button id="submit">Submit</button>
+                </div>
+            </div>
+        </div>  
+    </div>
     <section class="base-section" id="projects">
         <div class="heading" id="project-box">
             <h2>Stuff I have built so far</h2>
@@ -32,7 +58,7 @@
                 <div class="boxes">
                     <h3>Personal Portfolio</h3>
                     <div class="project-img">
-                        <img src="images/Project1.png">
+                        <img src="/images/Project1.png">
                     </div>
                     <p><span class="stat-high">Status: </span></p>
                     <h4>Description</h4>
@@ -52,7 +78,7 @@
                 <div class="boxes">
                     <h3>Websystem webpage</h3>
                     <div class="project-img">
-                        <img src="images/Project4.png">
+                        <img src="/images/Project4.png">
                     </div>
                     <p><span class="stat-high">Status: </span></p>
                     <h4>Description</h4>
@@ -60,7 +86,7 @@
                 <div class="boxes">
                     <h3>Websystem webpage</h3>
                     <div class="project-img">
-                        <img src="images/Project4.png">
+                        <img src="/images/Project4.png">
                     </div>
                     <p><span class="stat-high">Status: </span></p>
                     <h4>Description</h4>
@@ -86,5 +112,7 @@
             </ul>
         </div>
     </footer>   
+    <script src="/scripts/script.js"></script>
+    <script src="/scripts/modal.js"></script>
 </body>
 </html>

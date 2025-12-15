@@ -6,11 +6,12 @@ window.addEventListener("DOMContentLoaded", () => {
         const linkPath = new URL(link.href).pathname;
         link.classList.toggle("active", linkPath === activePage)
     })
+
 })
 
 /* This is for the experience page */
 window.addEventListener('DOMContentLoaded', () => {
-    const slider = document.querySelector('.scrollable')
+    const slider = document.querySelector('.exp-viewbox')
 
     slider.addEventListener('mouseenter', () => {
         slider.style.overflowY = 'scroll'
@@ -21,6 +22,7 @@ window.addEventListener('DOMContentLoaded', () => {
     })
 })
 
+
 /* This is for the image gallery slider */
 
 const imageSlider = document.querySelector("#project-grid")
@@ -29,16 +31,16 @@ const forwardBtn = document.querySelector("#forwards")
 const items = document.querySelectorAll(".boxes")
 
 let index = 0;
-const itemWidth = items[index].clientWidth 
-const totalItems = items.length
+const itemWidth = items[index].clientWidth;
+const totalItems = items.length;
 
-const firstItem = items[0]
-const lastItem = items[totalItems - 1]
+const firstItem = items[0];
+const lastItem = items[totalItems - 1];
 
-backBtn.disabled = true
+backBtn.disabled = true;
 
 function moveItems() {
-    const offset = index * (itemWidth + 15)
+    const offset = index * (itemWidth + 50)
 
     imageSlider.style.transform = `translate(${-offset}px)`
 
@@ -48,8 +50,8 @@ function moveItems() {
 
 forwardBtn.addEventListener('click', () => {
     forwardBtn.style.animation = "none"
-    forwardBtn.offsetHeight;
-    forwardBtn.style.animation = "bounce 0.2s ease-in-out"
+    forwardBtn.offsetHeight
+    forwardBtn.style.animation = "bounce 0.15s linear"
     if (index < totalItems - 3) {
         index += 1
         moveItems()
@@ -59,9 +61,10 @@ forwardBtn.addEventListener('click', () => {
 backBtn.addEventListener('click', () => {
     backBtn.style.animation = "none"
     backBtn.offsetHeight
-    backBtn.style.animation = "bounce 0.2s ease-in-out"
+    backBtn.style.animation = "bounce 0.15s linear"
     if (index > 0) {
         index -= 1
         moveItems()
     }
 })
+
