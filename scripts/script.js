@@ -1,12 +1,9 @@
-window.addEventListener("DOMContentLoaded", () => {
-    const activePage = window.location.pathname;
-    const navLinks = document.querySelectorAll(".nav-item")
+const activePage = window.location.pathname;
+const navLinks = document.querySelectorAll(".nav-item")
 
-    navLinks.forEach(link => {
-        const linkPath = new URL(link.href).pathname;
-        link.classList.toggle("active", linkPath === activePage)
-    })
-
+navLinks.forEach(link => {
+    const linkPath = new URL(link.href).pathname;
+    link.classList.toggle("active", linkPath === activePage)
 })
 
 /* This is for the experience page */
@@ -21,7 +18,6 @@ window.addEventListener('DOMContentLoaded', () => {
         slider.style.overflowY = 'hidden'
     })
 })
-
 
 /* This is for the image gallery slider */
 

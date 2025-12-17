@@ -1,0 +1,178 @@
+:root{
+    --first-bg-color: white;
+    --second-bg-color: rgb(163, 224, 245);
+    --first-acc: hsl(195, 75%, 87%);
+    --second-acc: #2fbff8;
+    --font-color: #423f3ff5;
+    --modal-background: rgba(0, 0, 0, 0.5);
+    --modal-fields: #6e6b6bc7;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    border: none;
+    outline: none;
+    scroll-behavior: smooth;
+    font-family: "Varela Round", Arial;
+}
+
+body{
+    color: var(--font-color);
+    background-color: var(--first-bg-color);
+    line-height: 1.5;
+    display: flex;
+}
+
+.landing-page{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+}
+
+.name-info {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.name-info p {
+    width: 900px;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.to-home {
+    position: relative;
+}
+
+.to-home a {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--second-acc);
+    border-radius: 40px;
+    margin: 25px;
+    width: 150px;
+    height: 40px;
+    background-color: var(--second-acc);
+    color: white;
+    transition: transform 0.1s ease forwards;
+}
+
+@keyframes bouncy {
+    0% {
+        transform: scale(1);
+    } 50% {
+        transform: scale(0.9);
+    } 100% {
+        transform: scale(1);
+    }
+}
+
+.to-home a:active{
+    transform: scale(0.5);
+}
+
+.to-home::after{
+    content: '';
+    position: absolute;
+    left: 12.5%;   
+    bottom: 28%;
+    width: 1px;
+    height: 40px;
+    border-radius: 30px;
+    background-color: rgb(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+.to-home:hover::after {
+    animation: moving 0.5s ease-in-out forwards;
+}
+
+.to-home:not(:hover)::after {
+    animation: moving-back 0.5s ease-in-out forwards;
+}
+
+@keyframes moving {
+    from {
+        left: 0%;
+        backdrop-filter: blur(1px);
+        width: 100%;
+    } to {
+        backdrop-filter: 0;
+        left: 100%;
+        width: 0%;
+    }   
+}
+
+@keyframes moving-back {
+    from {
+        backdrop-filter: 0;
+        left: 100%;
+        width: 0%;
+    } to {
+        left: 12.5%;
+        backdrop-filter: blur(1px);
+        width: 100%;
+    }
+}
+.glow {
+    position: absolute;
+    width: 1px;
+    color: inherit;
+    height: 1px;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: -1;
+    box-shadow: 0 0 80px 60px currentColor;
+}
+
+.dots-1{
+    top: 10%;
+    left: 10%;
+    background-color: var(--first-acc);
+    color: var(--first-acc);
+}
+
+.dots-2{
+    top: 25%;
+    left: 85%;
+    background-color: var(--second-acc);
+    color: var(--second-acc);
+}
+
+.dots-3{
+    bottom: 23%;
+    left: 25%;
+    background-color: var(--second-bg-color);
+    color: var(--second-bg-color);
+}
+
+@keyframes bubbles {
+    0% {
+        box-shadow: 0 0 80px 60px currentColor;
+    }
+    25% {
+        box-shadow: 0 0 120px 95px currentColor;
+    }
+    50% {
+        box-shadow: 0 0 170px 125px currentColor;
+    }
+    75% {
+        box-shadow: 0 0 120px 95px currentColor;
+    }
+
+    100% {
+        box-shadow: 0 0 80px 60px currentColor;
+    }
+}
+Xin Chao, I am John Le
