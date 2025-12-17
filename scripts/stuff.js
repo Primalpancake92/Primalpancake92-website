@@ -17,7 +17,7 @@ window.addEventListener("DOMContentLoaded", () => {
 const toHomeLink = document.querySelector('.to-home a');
 
 toHomeLink.addEventListener('mouseover', () => {
-    toHomeLink.style.animation = "bouncy 1s ease infinite";
+    toHomeLink.style.animation = "bouncy 1s ease infinite";     
 })
 
 toHomeLink.addEventListener('mouseout', () => {

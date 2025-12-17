@@ -58,12 +58,12 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--second-acc);
+    border: 1px solid var(--second-bg-color);
     border-radius: 40px;
     margin: 25px;
     width: 150px;
     height: 40px;
-    background-color: var(--second-acc);
+    background-color: var(--second-bg-color);
     color: white;
     transition: transform 0.1s ease forwards;
 }
@@ -125,6 +125,7 @@ body{
         width: 100%;
     }
 }
+
 .glow {
     position: absolute;
     width: 1px;
@@ -175,4 +176,3 @@ body{
         box-shadow: 0 0 80px 60px currentColor;
     }
 }
-Xin Chao, I am John Le
