@@ -10,11 +10,15 @@ const profile = document.getElementById('profile');
 const social = document.getElementById('socials');
 
 profile.addEventListener('mouseenter', () => {
-    social.style.animation = "social-opacity 0.3s ease-in-out forwards";
+    setTimeout(() => {
+        social.style.animation = "social-opacity 0.3s ease-in-out forwards";
+    }, 150);
 });
 
 profile.addEventListener('mouseleave', () => {
-    social.style.animation = "social-reverse 0.3s ease-in-out forwards";
+    setTimeout(() => {
+        social.style.animation = "social-reverse 0.3s ease-in-out forwards";
+    }, 150);
 });
 
 /* This is for the experience page */
