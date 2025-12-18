@@ -3,14 +3,14 @@ const secDot = document.querySelector('.dots-2');
 const thirdDot = document.querySelector('.dots-3');
 
 window.addEventListener("DOMContentLoaded", () => {
-    firstDot.style.animation = 'bubbles 6s ease-in-out infinite';
+    firstDot.style.animation = 'bubbles 7s ease-in-out infinite';
     
     setTimeout(() => {
-        secDot.style.animation = 'bubbles 6s ease-in-out infinite';
+        secDot.style.animation = 'bubbles 7s ease-in-out infinite';
     }, 1000);
 
     setTimeout(() => {
-        thirdDot.style.animation = 'bubbles 6s ease-in-out infinite';
+        thirdDot.style.animation = 'bubbles 7s ease-in-out infinite';
     }, 2000);
 });
 

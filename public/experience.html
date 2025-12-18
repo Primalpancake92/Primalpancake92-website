@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/styles/styles.css" rel="stylesheet">
+    <script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+    </script>
+    <script type="text/javascript">
+    (function(){
+        emailjs.init({
+            publicKey: "45vpKmtR-AGsiu7f8",
+        });
+    })();
+    </script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -43,32 +53,41 @@
                     <ul class="con-desc">
                         <li class="conn-links">
                             <h4>LinkedIn</h4>
-                            <a href="" target="_blank">John Le</a>
+                            <a href="https://www.linkedin.com/in/john-le-superconsole/" target="_blank">John Le</a>
                         </li>
-                        <li class="conn-links"></li>
-                        <li class="conn-links"></li>
-                        <li class="conn-links"></li>
+                        <li class="conn-links">
+                            <h4>Github</h4>
+                            <a href="https://github.com/Primalpancake92" target="_blank">Primalpancake92</a>
+                        </li>
+                        <li class="conn-links">
+                            <h4>Youtube</h4>
+                            <a  target="_blank">Not Available yet</a>
+                        </li>
+                        <li class="conn-links">
+                            <h4>Gmail</h4>
+                            <a href="mailto:johnle.jl39@gmail.com">johnle.jl39@gmail.com</a>
+                        </li>
                     </ul>
                 </div>
             </div>
-            <form class="email-side">
+            <form class="email-side" action="https://formspree.io/f/xaqwwjaw" method="POST">
                 <div class="email">
                     <label class="contact-lbls" for="modal-email">Email:</label>
-                    <input id="modal-email" type="email" required>
+                    <input name="email" id="modal-email" type="email" required>
                 </div>
                 <div class="about">
                     <label class="contact-lbls" for="modal-about">About:</label>
-                    <input id="modal-about" type="text" required>
+                    <input name="About" id="modal-about" type="text" required>
                 </div>
                 <div class="message">
                     <span id="msg-labels">
                         <label class="contact-lbls" for="modal-msg">Message:</label>
                         <div class="char-count"></div>
                     </span>
-                    <textarea id="modal-msg" type="text" required></textarea>
+                    <textarea name="message" id="modal-msg" type="text" required></textarea>
                 </div>
                 <div class="submit-btn">
-                    <button id="submit" type="submit">Submit</button>
+                    <button id="submit" type="submit" onclick="doSomething()">Submit</button>
                 </div>
             </form>
         </div>  
@@ -211,5 +230,7 @@
     </footer>   
     <script src="/scripts/script.js"></script>
     <script src="/scripts/modal.js"></script>
+    <script src="/scripts/stuff.js"></script>
+    <script src="/scripts/formDataSubmit.js"></script>
 </body>
 </html> 

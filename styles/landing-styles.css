@@ -1,12 +1,16 @@
 :root{
     --first-bg-color: white;
     --second-bg-color: rgb(163, 224, 245);
-    --first-acc: hsl(195, 75%, 87%);
-    --second-acc: #2fbff8;
+    --first-acc: #bcecff;
+    --second-acc: #27aee3;
     --font-color: #423f3ff5;
     --modal-background: rgba(0, 0, 0, 0.5);
     --modal-fields: #6e6b6bc7;
+    --box-shadow: rgba(0, 0, 0, 0.129);
+    --square-initial: rgba(255, 255, 255, 0.322);
+    --square-final: rgba(255, 255, 255, 0.695);
 }
+
 
 *{
     margin: 0;
@@ -58,12 +62,12 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--second-bg-color);
+    border: 1px solid var(--first-acc);
     border-radius: 40px;
     margin: 25px;
     width: 150px;
     height: 40px;
-    background-color: var(--second-bg-color);
+    background-color: var(--first-acc);
     color: white;
     transition: transform 0.1s ease forwards;
 }
@@ -90,7 +94,7 @@ body{
     width: 1px;
     height: 40px;
     border-radius: 30px;
-    background-color: rgb(255, 255, 255, 0.1);
+    background-color: rgb(255, 255, 255, 0.001);
     backdrop-filter: blur(10px);
 }
 

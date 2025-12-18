@@ -73,3 +73,43 @@ message.addEventListener('input', () => {
     charCnt.innerHTML = message.value.length;
     maxCharCount(message, charCnt);
 });
+
+function sendEmail (event) {
+    event.preventDefault();
+
+    const submitBtn = document.getElementById('submit');
+    const formData = new FormData(form);
+
+    console.log("working...");
+    submitBtn.disabled = true
+
+    fetch("https://formspree.io/f/xaqwwjaw", {
+        method: "POST",
+        body: formData,
+        headers: {
+            "Accept" : "application/json"
+        }
+    }).then((response) => {
+        if (response.ok) {
+            alert("Your email has been sent.");
+            console.log({
+                code: "200 OK",
+                inter: "Email sent..."
+            });
+            form.reset();
+        } else {
+            alert("There was a problem submitting the form");
+            console.log({
+                code: "554 Failed",
+                inter: "Email not sent..."
+            });
+        }
+    }).catch((error) => {
+        alert("Server couldn't be connected");
+    }).finally(() => {
+        submitBtn.innerText = "Submit";
+        submitBtn.disabled = false;
+    })
+}
+
+form.addEventListener('submit', sendEmail());
