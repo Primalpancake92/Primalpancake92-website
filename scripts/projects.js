@@ -15,7 +15,7 @@ const lastItem = items[totalItems - 1];
 backBtn.disabled = true;
 
 function moveItems() {
-    const offset = index * (itemWidth + 50)
+    const offset = index * (itemWidth + 35)
 
     imageSlider.style.transform = `translate(${-offset}px)`
 
@@ -26,7 +26,7 @@ function moveItems() {
 forwardBtn.addEventListener('click', () => {
     forwardBtn.style.animation = "none"
     forwardBtn.offsetHeight
-    forwardBtn.style.animation = "bounce 0.15s linear"
+    forwardBtn.style.animation = "bounce 0.1s linear"
     if (index < totalItems - 3) {
         index += 1
         moveItems()
@@ -35,10 +35,33 @@ forwardBtn.addEventListener('click', () => {
 
 backBtn.addEventListener('click', () => {
     backBtn.style.animation = "none"
-    backBtn.offsetHeight
-    backBtn.style.animation = "bounce 0.15s linear"
+    backBtn.offsetHeight;
+    backBtn.style.animation = "bounce 0.1s linear"
     if (index > 0) {
         index -= 1
         moveItems()
     }
-})
+}); 
+
+const projectLinks = document.querySelectorAll(".project-link");
+
+projectLinks.forEach(link => {
+    const seeMoreText = link.querySelector(".see-more p");
+    const arrow = link.querySelector(".see-more i");
+
+    link.addEventListener("mouseenter", () => {
+        arrow.style.transform = "rotate(45deg)";
+        seeMoreText.style.animation = "opacity-more 0.3s ease-in-out forwards";
+        seeMoreText.style.display = "flex";
+        link.style.animation = 'see-more 0.3s ease-in-out forwards';
+    });
+
+    link.addEventListener("mouseleave", () => {
+        arrow.style.transform = "rotate(0deg)";
+        setTimeout(() => {
+            link.style.animation = 'see-less 0.3s ease-in-out forwards';
+            seeMoreText.style.animation = "opacity-less 0.3s ease-in-out forwards";
+            seeMoreText.style.display = "none";
+        }, 5);
+    });
+});
