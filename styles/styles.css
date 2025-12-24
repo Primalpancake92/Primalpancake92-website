@@ -32,7 +32,6 @@ body{
     line-height: 1.5;
     display: flex;
     flex-direction: column;
-    overflow-y: hidden;
     align-items: center;
 }
 
@@ -172,85 +171,67 @@ ul li a img{
     align-items: center;
 }
 
-#info-side{
-    position: relative;
-    gap: 25px;
+.bento-container {
+     position: relative;
+    z-index: 0;
     display: grid;
-    grid-template-rows: 2fr 2fr;
-    width: 400px;
-    height: 541px;
-    padding: 21px 15px 0px 24px; 
+    /* Defines 3 equal-width columns */
+    grid-template-columns: repeat(3, 1fr); 
+    /* Defines 6 equal-height rows */
+    grid-template-rows: repeat(6, 1fr); 
+    gap: 20px; /* Adds space between boxes */
+    width: 750px;
+    height: 700px;
+    /* Names the grid areas for layout definition */
+    grid-template-areas: 
+        "box1 box1 box1"
+        "box1 box1 box1"
+        "box2 box2 box3"
+        "box2 box2 box3"
+        "box4 box5 box5"
+        "box4 box5 box5";
 }
 
-#profile{
-    position: relative;
-    /*left: -1000px; This is for the animation upon loading the dom content*/
+.bento-item {
+    border: solid 1px color-mix(in srgb, var(--third-acc), transparent 60%);
+    background-color: color-mix(in srgb, var(--first-acc), transparent 80%);
+    border-radius: 10px;
+    padding: 1rem;  
     display: flex;
-    border-radius: 20px;
     flex-direction: column;
-    align-items: center;
-    height: 500px;
-    width: 350px;
-    background-color: color-mix(in srgb, var(--first-acc), transparent 40%);
-    backdrop-filter: blur(10px);
-    transition: all 0.3s ease-in-out;
-}
-
-#profile:hover {
-    background-color: var(--first-acc);
-    box-shadow: 5px 7px 15px 1px var(--box-shadow);
-    backdrop-filter: blur(0px);
-}
-
-#more-info {
-    background-color: color-mix(in srgb, var(--first-acc), transparent 40%);
-    backdrop-filter: blur(10px);
-    width: 400px;
-    padding: 20px;
-    border-radius: 20px;
-    transition: all 0.3s ease-in-out;
-}
-
-#more-info:hover { 
-    background-color: var(--first-acc);
-    box-shadow: 5px 7px 15px 1px var(--box-shadow);
-}
-
-#pic-container{
-    margin-top: 50px;
-    width: 175px;
-    height: 175px;
-}
-
-#profile img{
-    width: 100%;
-    height: 100%;
-    border-radius: 100%;
-    object-fit: cover;
-}
-
-#profile h2{
-    margin: 15px 0 15px 0;
-}
-
-#line{
-    margin: 20px;   
-    position: relative;
-    width: 50px;
-    height: 1px;
-    background-color: var(--second-acc);
-}
-
-#socials{
-    display: flex;
     justify-content: center;
-    margin-top: 41px;
-    height: 55px;
-    width: 100%;
-    background-color: color-mix(in srgb, var(--first-bg-color), transparent 40%);
-    border-bottom-right-radius: 20px;
-    border-bottom-left-radius: 20px;
+    align-items: center;
 }
+
+@keyframes borderCycle {
+  0%   { background-position:   0% 50%; }
+  100% { background-position: 300% 50%; }
+}
+
+.box-1 { grid-area: box1; }
+.box-2 { grid-area: box2; }
+.box-3 { grid-area: box3; }
+.box-4 { grid-area: box4; }
+.box-5 { grid-area: box5; }
+.box-6 { grid-area: box6; }
+.box-7 { grid-area: box7; }
+
+@media (max-width: 1600px) {
+    .bento-container {
+        /* Stacks all items in a single column on mobile */
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        grid-template-areas: 
+            "box1"
+            "box2"
+            "box3"
+            "box4"
+            "box5"
+            "box6"
+            "box7";
+    }
+}
+
 
 @keyframes social-opacity { 
     from {
@@ -268,83 +249,6 @@ ul li a img{
     }
 }
 
-#socials-list{
-    position: relative;
-    display: flex;
-    list-style-type: none;
-    justify-content: center;
-    align-items: center;
-}
-
-#socials-list li{
-    width: 65px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#socials-list i {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0;
-    font-size: 1.7rem;
-    color: var(--font-color);
-    transition: all 0.3s ease;
-}
-
-#socials-list i:hover{
-    transform: scale(1.3);
-}
-
-#tech-stack{
-    width: 400px;
-    height: 203px;
-    background-color: color-mix(in srgb, var(--first-acc), transparent 30%);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    padding-top: 15px;
-    transition: all 0.3s ease-in-out;
-}
-
-#tech-stack:hover { 
-    background-color: var(--first-acc);
-    box-shadow: 5px 7px 15px 1px var(--box-shadow);
-}
-
-#tech-stack ul{
-    list-style-type: none;
-    display: grid;
-    justify-content: center;
-    align-items: center;
-    row-gap: 20px;
-    grid-template-columns: repeat(4, 97px);
-    grid-template-rows: repeat(2, 75px);
-}
-
-#tech-stack ul li{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-#tech-stack ul li i{
-    font-size: 2.5rem;
-    width: 75px;
-    height: 75px;
-    background-color: var(--square-initial);
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease-in-out;
-}
-
-#tech-stack ul li i:hover{
-    background-color: var(--square-final);
-    box-shadow: 3px 3px 5px 1px var(--box-shadow);
-}
-
 .footer{
     position: fixed;
     margin-top: auto;
@@ -354,6 +258,7 @@ ul li a img{
     width: 100%;
     bottom: 0;
     background-color: var(--first-bg-color);
+    z-index: 25;
 }
 
 .footer p {
@@ -417,7 +322,7 @@ ul li a img{
     background-color: color-mix(in srgb, var(--first-acc), transparent 80%);
     backdrop-filter: blur(50px);
     border-radius: 20px;
-    transition: all 0.3s ease-in;
+    transition: all 0.3s ease;
 }
 
 .exp-el:hover {
@@ -449,7 +354,7 @@ ul li a img{
 .skill-list ul:nth-child(1){
     list-style-type: none;
     display: flex;
-    margin: 20px 0 5px 0;
+    margin: 17px 0 0px 0;
     width: 100%;
     height: 30px;
     font-size: 0.8rem;  
@@ -459,7 +364,7 @@ ul li a img{
 .skill-list ul:nth-child(2) {
     list-style-type: none;
     display: flex;
-    margin: 0 0 10px 0;
+    margin: 7px 0 0px 0;
     width: 100%;
     height: 30px;
     font-size: 0.8rem;  
@@ -472,56 +377,91 @@ ul li a img{
     align-items: center;
     justify-content: center;
     margin-right: 5px;
-    padding: 0 5px 0 5px;
-    width: 80px;   
+    padding: 0 5px 0 5px;   
     color: var(--first-bg-color);   
     background-color: var(--third-acc);
     border: solid 1px var(--third-acc);
     border-radius: 20px;
 }
 
-.skill-list ul:nth-child(1) li:first-child {
-    position: relative;
+.skill-list-2 ul:nth-child(1){
+    list-style-type: none;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 5px;
-    padding: 0 5px 0 5px;
-    width: 120px;   
-    color: var(--first-bg-color);   
-    background-color: var(--third-acc);
-    border: solid 1px var(--third-acc);
-    border-radius: 20px;
+    margin: 26px 0 0 0;
+    width: 100%;
+    height: 30px;
+    font-size: 0.8rem;  
+    flex-direction: row;
 }
 
-.skill-list ul:nth-child(1) li:nth-child(2) {
-    position: relative;
+.skill-list-2 ul:nth-child(2), .skill-list-2 ul:nth-child(3) {
+    list-style-type: none;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-right: 5px;
-    padding: 0 5px 0 5px;
-    width: 150px;   
-    color: var(--first-bg-color);   
-    background-color: var(--third-acc);
-    border: solid 1px var(--third-acc);
-    border-radius: 20px;
+    margin: 7px 0 5px 0;
+    width: 100%;
+    height: 30px;
+    font-size: 0.8rem;  
+    flex-direction: row;
 }
 
-.skill-list ul:nth-child(1) li:nth-child(3) {
-    position: relative;
+.skill-list-3 ul:first-child {
+    list-style-type: none;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 5px 0 5px;
-    width: 60px;   
-    color: var(--first-bg-color);   
-    background-color: var(--third-acc);
-    border: solid 1px var(--third-acc);
-    border-radius: 20px;
+    margin: 17px 0 0px 0;
+    width: 100%;
+    height: 30px;
+    font-size: 0.8rem;  
+    flex-direction: row;
 }
 
+.skill-list-3 ul:nth-child(2) {
+    list-style-type: none;
+    display: flex;
+    margin: 7px 0 10px 0;
+    width: 100%;
+    height: 30px;
+    font-size: 0.8rem;  
+    flex-direction: row;
+}
 
+.skill-list ul:first-child li, .skill-list ul:nth-child(2) li {
+    border: solid 1px var(--third-acc);
+    background-color: var(--third-acc);
+    border-radius: 20px; 
+    height: 30px;
+    color: var(--first-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    margin-right: 10px;
+}
+
+.skill-list-2 ul:first-child li, .skill-list-2 ul:nth-child(2) li, .skill-list-2 ul:nth-child(3) li {
+    border: solid 1px var(--third-acc);
+    background-color: var(--third-acc);
+    height: 30px;
+    border-radius: 20px; 
+    color: var(--first-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+    margin-right: 10px;
+}
+
+.skill-list-3 ul:first-child li, .skill-list-3 ul:nth-child(2) li{
+    border: solid 1px var(--third-acc);
+    background-color: var(--third-acc);
+    border-radius: 20px; 
+    height: 30px;
+    color: var(--first-bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 9px;
+    margin-right: 10px;
+}
 
 /* This is the projects page */
 
@@ -614,7 +554,7 @@ ul li a img{
 .tech-icons{
     display: flex;
     align-items: center;
-    height: 60px;
+    height: 50px;
     gap: 10px;
 }
 
