@@ -2,16 +2,19 @@
     --first-bg-color: white;
     --second-bg-color: rgb(163, 224, 245);
     --first-acc: #bdecff;
-    --second-acc: rgb(47, 191, 248);
-    --third-acc: #023551;
+    --second-acc: #2fbff8;
+    --third-acc: #1e64a6;
     --font-color: #111111;
     --modal-background: rgba(0, 0, 0, 0.5);
     --modal-fields: #6e6b6bc7;
     --box-shadow: rgba(0, 0, 0, 0.129);
     --square-initial: rgba(255, 255, 255, 0.738);
-    --square-final: rgba(255, 255, 255, 0.695);
+    --square-final: rgba(255, 255, 255, 0.695); 
+    --box-glow:
+        0 5px 10px rgba(0, 0, 0, 0.25),
+        0 0 20px rgba(39, 178, 233, 0.768);
+    --text-gradient: #04bcff, var(--first-acc);
 }
-
 
 *{
     margin: 0;
@@ -57,7 +60,17 @@ body{
 }
 
 #grad-name {
-    color: var(--second-acc);
+    background: -webkit-linear-gradient(135deg, var(--text-gradient));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: gradient-move 10s ease infinite;
+}
+
+@keyframes gradient-move {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 .to-home {
@@ -236,10 +249,11 @@ body{
 
 .social-shad{ 
     position: relative;
-    width: 50px;
+    transform: rotateX(60deg);
+    width: 35px;
     height: 20px;
     bottom: 90px;
-    margin: 0 12px;
+    margin: 0 19.5px;
     border-radius: 100%;   
     background: radial-gradient(
         ellipse at center,

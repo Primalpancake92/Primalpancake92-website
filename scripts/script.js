@@ -1,7 +1,7 @@
 const activePage = window.location.pathname;
 const navLinks = document.querySelectorAll(".nav-item")
 
-navLinks.forEach(link => {
+navLinks.forEach((link) => {
     const linkPath = new URL(link.href).pathname;
     link.classList.toggle("active", linkPath === activePage)
 })
