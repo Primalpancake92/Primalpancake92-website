@@ -8,37 +8,37 @@ const gap = 50;
 
 const circArray = Array.from(circ);
 
-applyActiveEl(index);
+circArray.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+        index = i;
+        console.log('dot', i);
+        moveTo(index);
+        updateActive(index);
+    });
+});
 
-function moveForwards() {
-    const offset = (index) * (itemWidth + gap);
-
+function moveTo(i) {
+    const offset = i * (itemWidth + gap);
     projGrid.style.transition = "transform 1s ease-in-out";
     projGrid.style.transform = `translateX(${-offset}px)`;
 }
 
-function applyActiveEl (index) {
-    for (let i = 0; i < circArray.length; i++) { 
-        if (i == index) {
-            circArray[i].classList.add('circ-active');
-        } else {
-             circArray[i].classList.remove('circ-active');
-        }
-    }
+function moveForwards() {
+    moveTo(index);
 }
 
-function returnIndex () {
-    for (let i = 0; i < circArray.length; i++) {
-        c
-    }
+function updateActive(index) {
+    circArray.forEach((dot, i) => {
+        dot.classList.toggle('circ-active', i === index);
+    });
 }
 
 window.addEventListener("DOMContentLoaded", () => {
+    updateActive(index);
+
     setInterval(() => {
         index = (index + 1) % projItems.length;
         moveForwards();
-        applyActiveEl(index);
+        updateActive(index);
     }, 5000);
-
-    clickIndex();
 });

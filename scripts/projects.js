@@ -9,21 +9,21 @@ let index = 0;
 const itemWidth = items[index].clientWidth;
 const totalItems = items.length;
 
-backBtn.disabled = true;
+backBtn.classList.add("disabled", index === 0);
 
 function moveItems() {
     const offset = index * (itemWidth + 20)
 
-    imageSlider.style.transform = `translate(${-offset}px)`
+    imageSlider.style.transform = `translateX(${-offset}px)`
 
-    backBtn.disabled = index <= 0;
-    forwardBtn.disabled = index >= totalItems - 3;
+    backBtn.classList.toggle("disabled", index === 0);
+    forwardBtn.classList.toggle("disabled", index >= totalItems - 3);
 }
 
 forwardBtn.addEventListener('click', () => {
     forwardBtn.style.animation = "none";
     forwardBtn.offsetHeight;
-    forwardBtn.style.animation = "bounce 0.1s linear";
+    forwardBtn.style.animation = "bounce 0.1s ease";
     if (index < totalItems - 3) {
         index += 1;
         moveItems();
@@ -33,7 +33,7 @@ forwardBtn.addEventListener('click', () => {
 backBtn.addEventListener('click', () => {
     backBtn.style.animation = "none";
     backBtn.offsetHeight;
-    backBtn.style.animation = "bounce 0.1s linear";
+    backBtn.style.animation = "bounce 0.1s ease";
     if (index > 0) {
         index -= 1
         moveItems()

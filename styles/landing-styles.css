@@ -13,7 +13,7 @@
     --box-glow:
         0 5px 10px rgba(0, 0, 0, 0.25),
         0 0 20px rgba(39, 178, 233, 0.768);
-    --text-gradient: #04bcff, var(--first-acc);
+    --text-gradient: #1ec2e7 20%, var(--second-acc) 60%, var(--third-acc) 75%;
 }
 
 *{
@@ -63,7 +63,7 @@ body{
     background: -webkit-linear-gradient(135deg, var(--text-gradient));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    background-size: 200% 200%;
+    background-size: 150% 150%;
     animation: gradient-move 10s ease infinite;
 }
 
