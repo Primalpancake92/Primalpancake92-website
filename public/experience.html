@@ -4,16 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="/styles/styles.css" rel="stylesheet">
-    <script type="text/javascript"
-        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-    </script>
-    <script type="text/javascript">
-    (function(){
-        emailjs.init({
-            publicKey: "45vpKmtR-AGsiu7f8",
-        });
-    })();
-    </script>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +18,7 @@
             <li><a class="nav-item" href="/public/home.html">Home</a></li>
             <li><a class="nav-item" href="/public/experience.html">Experience</a></li>
             <li><a class="nav-item" href="/public/projects.html">My Projects</a></li>
-            <li><a class="nav-item" href="/public/portfolio.html">Portfolio</a></li>
+            <li><a class="nav-item" href="/Portfolio/John Le (Dev).pdf" download="John_Le_CV">Portfolio</a></li>
             <li><a class="contact-btn">Contact Me</a></li>
         </ul>
     </nav>
@@ -37,11 +27,8 @@
             <div class="deco-side">
                 <h1>Get In Touch</h1>
                 <p>
-                    Interested in talking to, understanding, or even working with me? Fill in the form and 
-                    I will try my best to reply to you as soon as possible. 
-                </p>
-                <p>
-                    Feel free to connect with me here too.
+                    Interested in talking to, understanding, or even working with me? Feel free to
+                    connect with me.
                 </p>
                 <div class="connect">
                     <ul class="link-icon">
@@ -70,26 +57,6 @@
                     </ul>
                 </div>
             </div>
-            <form class="email-side" action="https://formspree.io/f/xaqwwjaw" method="POST">
-                <div class="email">
-                    <label class="contact-lbls" for="modal-email">Email:</label>
-                    <input name="email" id="modal-email" type="email" required>
-                </div>
-                <div class="about">
-                    <label class="contact-lbls" for="modal-about">About:</label>
-                    <input name="About" id="modal-about" type="text" required>
-                </div>
-                <div class="message">
-                    <span id="msg-labels">
-                        <label class="contact-lbls" for="modal-msg">Message:</label>
-                        <div class="char-count"></div>
-                    </span>
-                    <textarea name="message" id="modal-msg" type="text" required></textarea>
-                </div>
-                <div class="submit-btn">
-                    <button id="submit" type="submit" onclick="doSomething()">Submit</button>
-                </div>
-            </form>
         </div>  
     </div>
     <section class="base-section">

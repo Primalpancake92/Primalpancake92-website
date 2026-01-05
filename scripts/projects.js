@@ -1,5 +1,3 @@
-/* This is for the image gallery slider */
-
 const imageSlider = document.querySelector("#project-grid")
 const backBtn = document.querySelector("#back")
 const forwardBtn = document.querySelector("#forwards")
@@ -9,7 +7,9 @@ let index = 0;
 const itemWidth = items[index].clientWidth;
 const totalItems = items.length;
 
-backBtn.classList.add("disabled", index === 0);
+window.addEventListener("DOMContentLoaded", () => {
+    backBtn.classList.add("disabled", index === 0);
+});
 
 function moveItems() {
     const offset = index * (itemWidth + 20)

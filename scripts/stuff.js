@@ -3,6 +3,8 @@ const secDot = document.querySelector('.dots-2');
 const thirdDot = document.querySelector('.dots-3');
 const fourthDot = document.querySelector('.dots-4');
 
+// Fix this by getting the HTML collection, iterating and staggering animations
+
 window.addEventListener("DOMContentLoaded", () => {
     firstDot.style.animation = 'bubbles 7s ease-in-out infinite';
     

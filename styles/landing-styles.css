@@ -75,6 +75,31 @@ body{
 
 .to-home {
     position: relative;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.to-home a:first-child{
+    background-color: var(--third-acc);
+}
+
+.to-home a:nth-child(2) {
+    background-color: transparent;
+    border: 1px solid var(--second-acc);
+    color: var(--second-acc);
+    padding: 15px;
+    width: 100px;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.to-home :nth-child(2):hover {
+    background-color: var(--second-acc);
+    border: 1px solid var(--second-acc);
+    color: white;
+    box-shadow: 0 0 10px 5px var(--first-acc);
+    font-size: 1.2rem;
 }
 
 .to-home a {
@@ -82,12 +107,10 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid var(--third-acc);
     border-radius: 40px;
-    margin: 25px;
-    width: 150px;
+    margin-top: 25px;
+    width: 140px;
     height: 40px;
-    background-color: var(--third-acc);
     color: white;
     transition: transform 0.1s ease forwards;
 }
@@ -106,53 +129,6 @@ body{
     font-size: 1.1rem;
 }
 
-.to-home a:active{
-    transform: scale(0.5);
-}
-
-.to-home::after{
-    content: '';
-    position: absolute;
-    left: 12.5%;   
-    bottom: 28%;
-    width: 1px;
-    height: 40px;
-    border-radius: 30px;
-    background-color: rgb(255, 255, 255, 0.001);
-    backdrop-filter: blur(10px);
-}
-
-.to-home:hover::after {
-    animation: moving 0.5s ease-in-out forwards;
-}
-
-.to-home:not(:hover)::after {
-    animation: moving-back 0.5s ease-in-out forwards;
-}
-
-@keyframes moving {
-    from {
-        left: 0%;
-        backdrop-filter: blur(1px);
-        width: 100%;
-    } to {
-        backdrop-filter: 0;
-        left: 100%;
-        width: 0%;
-    }   
-}
-
-@keyframes moving-back {
-    from {
-        backdrop-filter: 0;
-        left: 100%;
-        width: 0%;
-    } to {
-        left: 12.5%;
-        backdrop-filter: blur(1px);
-        width: 100%;
-    }
-}
 
 .glow {
     position: absolute;
