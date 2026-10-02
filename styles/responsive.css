@@ -1,0 +1,892 @@
+/* Responsive overrides for every page.
+   Loaded after styles.css / landing-styles.css. Every rule lives inside an @media
+   block so the base stylesheets stay untouched. Desktop-first, like the base CSS:
+     1080p  (1281px+)   reference design, only height/overflow fixes
+     720p   (<=1280px)  two-column grids, smaller gaps and headings
+     480p   (<=854px)   single-column grids, tighter nav
+     mobile (<=600px, or a landscape phone) single column, hamburger menu
+   The hamburger menu has its own block (<=640px or landscape phone); keep that
+   query in sync with MOBILE_NAV in scripts/nav-toggle.js. */
+
+/* All sizes. */
+@media all {
+    /* The menu button is only shown by the mobile nav block further down. */
+    .nav-toggle {
+        display: none;
+    }
+
+    /* The carousel dots sat underneath .proj-view (z-index: 1), so they could
+       not be clicked or tapped. Lift them above it. */
+    .circs {
+        z-index: 2;
+    }
+}
+
+/* ---------- 1080p band: 1281px - 1920px ---------- */
+
+/* projects.html: the 1300px slider window overflowed by up to 19px below 1300px. */
+@media (min-width: 1281px) and (max-width: 1299px) {
+    .project-view {
+        max-width: 100%;
+    }
+}
+
+/* Short laptop screens (e.g. 1366x768): the fixed-height sections clipped their
+   content under the fixed nav and footer. Let the section grow and the page scroll.
+   When the content fits, it is still centred exactly as before. */
+@media (min-width: 1281px) and (max-height: 900px) {
+    .base-section {
+        height: auto;
+        min-height: calc(100vh - 150px);
+        margin-bottom: 75px;
+    }
+
+    .info-content,
+    .experience {
+        height: auto;
+    }
+}
+
+/* ---------- 720p band: 855px - 1280px ---------- */
+
+@media (max-width: 1280px) {
+    /* Sections grow with their content instead of clipping under nav/footer. */
+    .base-section {
+        height: auto;
+        min-height: calc(100vh - 150px);
+        margin-bottom: 75px;
+    }
+
+    .info-content,
+    .experience {
+        height: auto;
+    }
+
+    /* Nav: same layout, a little tighter. */
+    .navlinks {
+        gap: 16px;
+        margin: 0 24px;
+    }
+
+    .navlinks li a.nav-item,
+    .navlinks li:last-child a {
+        font-size: 1.1rem;
+    }
+
+    /* Landing page */
+    .name-info h1 {
+        font-size: 3.5rem !important;
+    }
+
+    .name-info h2 {
+        font-size: 1.75rem !important;
+    }
+
+    .name-info > p {
+        width: min(900px, 90%);
+    }
+
+    /* Home: 2-column bento */
+    .bento-container {
+        width: calc(100% - 48px);
+        max-width: 1100px;
+        margin: 2rem auto;
+        gap: 16px;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: none;
+        grid-auto-rows: auto;
+    }
+
+    .box-1,
+    .box-4,
+    .box-5 {
+        grid-column: span 2;
+        grid-row: auto;
+    }
+
+    .box-2,
+    .box-3 {
+        grid-column: span 1;
+        grid-row: auto;
+    }
+
+    .box-1 {
+        gap: 24px;
+        padding: 1.5rem 2rem;
+    }
+
+    .info-container {
+        position: static;
+        flex: 0 0 auto;
+        width: 150px;
+        height: auto;
+    }
+
+    .info-container img {
+        width: 150px;
+        height: 130px;
+    }
+
+    .info {
+        position: static;
+        flex: 1 1 auto;
+        width: auto;
+    }
+
+    /* Carousel: each slide is exactly as wide as the box content, so the
+       clientWidth + 50px step in projAnim.js still lands one slide at a time. */
+    .box-3 {
+        container-type: inline-size;
+    }
+
+    .proj-grid {
+        max-width: none;
+        margin: 0 35px;
+    }
+
+    .latest-proj {
+        flex: 0 0 auto;
+        width: 100cqw;
+    }
+
+    .circs {
+        left: 0;
+        right: 0;
+        width: auto;
+    }
+
+    .skills-box {
+        width: auto;
+        max-width: calc(100% - 150px);
+    }
+
+    .skills-box ul {
+        flex-wrap: wrap;
+        row-gap: 10px;
+    }
+
+    .stack {
+        right: 24px;
+        width: 120px;
+    }
+
+    .stack img {
+        width: 120px;
+    }
+
+    /* Experience: 2 columns */
+    .experience {
+        padding: 32px 24px;
+    }
+
+    .experience h1 {
+        font-size: 1.8rem;
+    }
+
+    .exp-con {
+        width: 100%;
+        max-width: 1215px;
+        height: auto;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: none;
+        grid-auto-rows: auto;
+        align-items: stretch;
+        gap: 20px;
+    }
+
+    .exp-el {
+        width: auto;
+        height: auto;
+        min-height: 300px;
+    }
+
+    .skills {
+        height: auto;
+    }
+
+    .exp-el .skills ul {
+        flex-wrap: wrap;
+        height: auto;
+        row-gap: 7px;
+    }
+
+    /* Projects: the slider can't reach card 4 with fewer than 3 cards in view
+       (projects.js stops at totalItems - 3), so the cards are laid out as a
+       2-column grid and the arrows are hidden. */
+    #buttons {
+        display: none;
+    }
+
+    .project-view {
+        top: 0;
+        width: calc(100% - 48px);
+        max-width: 1300px;
+        height: auto;
+        overflow: visible;
+        padding: 16px 0 24px;
+    }
+
+    #project-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+        width: 100%;
+        transform: none !important; /* beats the inline transform set by projects.js */
+    }
+
+    .boxes {
+        width: auto;
+        height: auto;
+    }
+
+    .project-img {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 368 / 250;
+    }
+
+    .tech-icons {
+        flex-wrap: wrap;
+        height: auto;
+        min-height: 50px;
+        row-gap: 6px;
+        padding: 6px 0;
+    }
+
+    .desc {
+        height: auto;
+        min-height: 50px;
+    }
+
+    .go-to {
+        top: 0;
+        margin-top: 12px;
+    }
+}
+
+/* ---------- 480p band: 601px - 854px ---------- */
+
+@media (max-width: 854px) {
+    /* Nav: tighter again (the hamburger takes over at 640px). */
+    .navlinks {
+        gap: 10px;
+        margin: 0 16px;
+    }
+
+    .navlinks li {
+        padding: 0 3px;
+    }
+
+    .navlinks li:first-child {
+        width: auto;
+    }
+
+    .navlinks li:first-child a img {
+        margin-right: 10px;
+    }
+
+    .navlinks li a.nav-item,
+    .navlinks li:last-child a {
+        font-size: 1rem;
+    }
+
+    /* Landing page */
+    .name-info h1 {
+        font-size: 2.75rem !important;
+    }
+
+    .name-info h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .name-info > p {
+        width: 90%;
+    }
+
+    /* The page grows with its content and the socials sit under the buttons
+       (on short screens their -90px offset pulled them over the buttons). */
+    .landing-page {
+        height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
+        padding: 32px 0;
+    }
+
+    .name-info {
+        height: auto;
+    }
+
+    #social-con {
+        bottom: auto;
+        margin-top: 40px;
+    }
+
+    .social-shad {
+        bottom: auto;
+    }
+
+    /* Home: single column */
+    .bento-container {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .box-1,
+    .box-2,
+    .box-3,
+    .box-4,
+    .box-5 {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    /* The carousel is absolutely positioned, so the box needs its own height
+       once it no longer shares a row with the profile box. */
+    .box-3 {
+        min-height: 420px;
+    }
+
+    /* Experience: single column */
+    .exp-con {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .exp-el {
+        min-height: 0;
+    }
+
+    /* Projects: single column, kept to a readable card width */
+    .project-view {
+        max-width: 600px;
+    }
+
+    #project-grid {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* ---------- Mobile: up to 600px, plus landscape phones ---------- */
+
+@media (max-width: 600px), (max-height: 500px) and (orientation: landscape) and (pointer: coarse) {
+    /* Shared page frame: the footer joins the page flow instead of covering it. */
+    .base-section {
+        align-items: flex-start;
+        min-height: calc(100vh - 75px);
+        min-height: calc(100dvh - 75px);
+        margin-top: calc(75px + env(safe-area-inset-top));
+        margin-bottom: 0;
+        padding: 16px max(16px, env(safe-area-inset-right)) 32px max(16px, env(safe-area-inset-left));
+    }
+
+    .footer {
+        position: static;
+        height: auto;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px 16px;
+        padding: 12px max(16px, env(safe-area-inset-right)) calc(12px + env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    }
+
+    #left,
+    #right {
+        width: auto;
+    }
+
+    #right ul {
+        gap: 0;
+    }
+
+    #right ul li a {
+        min-width: 44px;
+        min-height: 44px;
+    }
+
+    /* Landing page */
+    .landing-page {
+        padding: max(32px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(24px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    }
+
+    .name-info {
+        text-align: center;
+    }
+
+    .name-info h1 {
+        font-size: 2rem !important;
+    }
+
+    .name-info h2 {
+        font-size: 1.2rem !important;
+    }
+
+    .name-info > p {
+        width: 100%;
+        font-size: 1rem;
+    }
+
+    .to-home {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .to-home a {
+        height: 44px;
+    }
+
+    .social-bub {
+        width: 44px;
+        height: 44px;
+        margin: 0 8px;
+    }
+
+    #social-con i {
+        font-size: 1.25rem;
+    }
+
+    .social-shad {
+        width: 30px;
+        margin: 0 15px;
+    }
+
+    /* Home: single column */
+    .info-content {
+        width: 100%;
+    }
+
+    .bento-container {
+        width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        margin: 0 0 8px;
+    }
+
+    .box-1,
+    .box-2,
+    .box-3,
+    .box-4,
+    .box-5 {
+        grid-column: 1 / -1;
+        grid-row: auto;
+    }
+
+    .bento-item {
+        border-radius: 28px;
+    }
+
+    .box-1 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+        padding: 24px;
+    }
+
+    .info-container {
+        align-self: center;
+        width: auto;
+    }
+
+    .info-container img {
+        width: 120px;
+        height: 100px;
+    }
+
+    .info h1 {
+        font-size: 1.6rem;
+    }
+
+    .pfp {
+        height: 360px;
+    }
+
+    .profile-heading {
+        top: 24px;
+        left: 24px;
+        font-size: 1.3rem;
+    }
+
+    .profile-info {
+        top: auto;
+        bottom: 20px;
+        height: auto;
+        min-height: 72px;
+    }
+
+    .profile-info h1 {
+        font-size: 1.25rem;
+    }
+
+    .box-3 {
+        min-height: 340px;
+        padding: 24px;
+    }
+
+    .proj-grid {
+        margin: 0 24px;
+    }
+
+    /* 44px tap area around each 10px dot; the visible dot stays the same size. */
+    .circ,
+    .circ-active {
+        margin: 0;
+        padding: 17px;
+        background-clip: content-box;
+        box-sizing: content-box;
+        cursor: pointer;
+    }
+
+    .circ:hover {
+        cursor: pointer;
+    }
+
+    .circ-active {
+        padding: 16px;
+    }
+
+    .box-4 {
+        padding: 24px;
+    }
+
+    .box-4 ul {
+        padding-left: 28px;
+    }
+
+    .box-5 {
+        padding: 24px;
+    }
+
+    .skills-box {
+        max-width: none;
+    }
+
+    .stack {
+        position: static;
+        align-self: center;
+        width: 110px;
+        margin-top: 12px;
+    }
+
+    .stack img {
+        width: 110px;
+    }
+
+    /* Experience: single column */
+    .experience {
+        padding: 8px 0 0;
+    }
+
+    .experience h1 {
+        font-size: 1.6rem;
+    }
+
+    .experience > p {
+        text-align: center;
+    }
+
+    .exp-con {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .exp-el {
+        min-height: 0;
+    }
+
+    /* Hover-to-scroll (script.js) can't happen on touch: always scrollable. */
+    .exp-viewbox {
+        overflow-y: auto !important;
+    }
+
+    /* Projects: single column */
+    #projects > p {
+        text-align: center;
+    }
+
+    .project-view {
+        width: 100%;
+    }
+
+    #project-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+    }
+
+    .boxes {
+        padding: 16px;
+    }
+
+    /* Contact modal fits the screen and scrolls */
+    .some-modal {
+        height: 100vh;
+        height: 100dvh;
+        padding: max(16px, env(safe-area-inset-top)) max(16px, env(safe-area-inset-right)) max(16px, env(safe-area-inset-bottom)) max(16px, env(safe-area-inset-left));
+    }
+
+    /* The card itself scrolls (not this wrapper), so the scrollbar is drawn
+       inside its rounded corners. */
+    .modal-content {
+        flex-direction: column;
+        width: 100%;
+        max-width: 450px;
+        height: auto;
+        max-height: 100%;
+        overflow: hidden;
+        border-radius: 30px;
+    }
+
+    .deco-side {
+        width: 100%;
+        height: auto;
+        min-height: 0;
+        overflow-y: auto;
+        overscroll-behavior: contain;
+        -webkit-overflow-scrolling: touch;
+        padding: 24px 20px;
+    }
+
+    .deco-side h1 {
+        font-size: 1.5rem;
+    }
+
+    .deco-side p {
+        width: auto;
+    }
+
+    .connect {
+        grid-template-columns: auto minmax(0, 1fr);
+        column-gap: 12px;
+        margin-top: 20px;
+        height: auto;
+    }
+
+    .link-icon li {
+        width: 48px;
+        height: 48px;
+    }
+
+    .conn-links {
+        height: 48px;
+        min-width: 0;
+    }
+
+    .conn-links a {
+        overflow-wrap: anywhere;
+    }
+
+    /* Make the whole 48px row the link's tap target. */
+    .conn-links a::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+    }
+}
+
+/* ---------- Mobile nav: hamburger menu ---------- */
+
+@media (max-width: 640px), (max-height: 500px) and (orientation: landscape) and (pointer: coarse) {
+    .nav {
+        display: block;
+        height: auto;
+        min-height: 75px;
+        padding: env(safe-area-inset-top) max(16px, env(safe-area-inset-right)) 0 max(16px, env(safe-area-inset-left));
+    }
+
+    .nav.open {
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        box-shadow: 0 8px 16px var(--box-shadow);
+    }
+
+    .navlinks {
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        margin: 0;
+        width: 100%;
+        height: auto;
+        overflow: visible;
+    }
+
+    .navlinks li {
+        padding: 0;
+    }
+
+    .navlinks li:first-child {
+        width: auto;
+        height: 75px;
+        padding-right: 60px;
+    }
+
+    .navlinks li:first-child a {
+        min-height: 44px;
+    }
+
+    .navlinks li:nth-child(2) {
+        margin-left: 0;
+    }
+
+    /* Closed: every item except the logo is collapsed and unfocusable. */
+    .navlinks li:not(:first-child) {
+        max-height: 0;
+        opacity: 0;
+        visibility: hidden;
+        overflow: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s linear 0.3s;
+    }
+
+    .nav.open .navlinks li:not(:first-child) {
+        max-height: 60px;
+        opacity: 1;
+        visibility: visible;
+        transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s;
+    }
+
+    .nav.open .navlinks li:last-child {
+        max-height: 80px;
+        padding-bottom: 16px;
+    }
+
+    .navlinks li a.nav-item {
+        justify-content: flex-start;
+        width: 100%;
+        min-height: 48px;
+        padding: 0 8px;
+        font-size: 1.1rem;
+        border-top: 1px solid var(--first-acc);
+    }
+
+    /* Contact Me drops its pill styling so it matches the other menu items. */
+    .navlinks li:last-child a {
+        justify-content: flex-start;
+        width: 100%;
+        min-height: 48px;
+        margin: 0;
+        padding: 0 8px;
+        font-size: 1.1rem;
+        color: var(--font-color);
+        background-color: transparent;
+        border: 0;
+        border-top: 1px solid var(--first-acc);
+        border-radius: 0;
+    }
+
+    .navlinks li:last-child a:hover {
+        color: var(--second-acc);
+        background-color: transparent;
+    }
+
+    .nav-toggle {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: calc(env(safe-area-inset-top) + 15.5px);
+        right: max(16px, env(safe-area-inset-right));
+        width: 44px;
+        height: 44px;
+        border-radius: 50%;
+        background: transparent;
+        color: var(--font-color);
+        cursor: pointer;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav.open .nav-toggle::before {
+        scale: 1;
+        transition: scale 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s;
+    }
+
+    /* Three bars that morph between the hamburger and the X, so both states
+       are drawn at the same size. Opening: the outer bars slide to the middle,
+       then rotate into an X with a slight overshoot. Closing runs it backwards. */
+    .nav-toggle-bar {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 22px;
+        height: 2px;
+        margin: -1px 0 0 -11px;
+        border-radius: 2px;
+        background-color: currentColor;
+        transition:
+            translate 0.2s ease 0.2s,
+            rotate 0.2s ease,
+            opacity 0.1s ease 0.2s,
+            scale 0.2s ease 0.2s;
+    }
+
+    .nav-toggle-bar:nth-child(1) {
+        translate: 0 -7px;
+    }
+
+    .nav-toggle-bar:nth-child(3) {
+        translate: 0 7px;
+    }
+
+    .nav.open .nav-toggle-bar {
+        transition:
+            translate 0.2s ease,
+            rotate 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) 0.2s,
+            opacity 0.1s ease,
+            scale 0.2s ease;
+    }
+
+    .nav.open .nav-toggle-bar:nth-child(1) {
+        translate: 0 0;
+        rotate: 45deg;
+    }
+
+    .nav.open .nav-toggle-bar:nth-child(2) {
+        opacity: 0;
+        scale: 0 1;
+    }
+
+    .nav.open .nav-toggle-bar:nth-child(3) {
+        translate: 0 0;
+        rotate: -45deg;
+    }
+
+    .nav-toggle:hover .nav-toggle-bar,
+    .nav-toggle:focus-visible .nav-toggle-bar {
+        background-color: var(--second-acc);
+    }
+
+    .nav-toggle:focus-visible {
+        outline: 2px solid var(--second-acc);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .nav-toggle::before,
+        .nav-toggle-bar,
+        .nav.open .nav-toggle::before,
+        .nav.open .nav-toggle-bar {
+            transition: none;
+        }
+    }
+}
+
+/* ---------- Touch screens: hover-only content shown by default ---------- */
+
+@media (max-width: 600px), (max-height: 500px) and (orientation: landscape) and (pointer: coarse), (hover: none) and (max-width: 1280px) {
+    /* projects.js reveals "See more" on mouseenter and hides it again with inline
+       styles on mouseleave, so !important is needed to keep it visible. */
+    .go-to {
+        height: auto;
+    }
+
+    .project-link {
+        width: auto !important;
+        height: auto;
+        min-height: 44px;
+        padding: 0 14px;
+        animation: none !important;
+    }
+
+    .see-more {
+        gap: 6px;
+        min-height: 44px;
+    }
+
+    .see-more p {
+        display: flex !important;
+        width: auto;
+        animation: none !important;
+    }
+}
