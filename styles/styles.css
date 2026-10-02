@@ -130,6 +130,18 @@ ul li a img{
     cursor: pointer;
 }
 
+/* External-link icon after "Portfolio"; nudges up and right on hover. */
+.nav-arrow {
+    margin-left: 6px;
+    font-size: 0.7em;
+    transition: transform 0.2s ease-in-out;
+}
+
+.nav-item:hover .nav-arrow,
+.nav-item:focus-visible .nav-arrow {
+    transform: translate(2px, -2px);
+}
+
 .navlinks .active{
     position: relative;
     color: var(--second-acc);
